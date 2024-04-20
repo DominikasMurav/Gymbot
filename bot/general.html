@@ -1,10 +1,11 @@
 import telebot
 from telebot import types
-TOKEN = ""
 
-bot = telebot.TeleBot(TOKEN)
+Token = "6905402429:AAFubBgvnAMH4XWnWCZQvTWeti3ieZetP6k"
 
-@bot.message_handler(commands=['Start'])
+bot = telebot.TeleBot(Token)
+
+@bot.message_handler(commands=['start'])
 def start(message):
     bot.send_message(message.chat.id, 'Wsp')
     markup = types.ReplyKeyboardMarkup(resize_keyboard = True)
@@ -13,32 +14,27 @@ def start(message):
     item3= types.KeyboardButton('Me result')
     item4= types.KeyboardButton('How to train correctly video link')
 
-    markup.add(item1 , item2 , item3 , item4)
+    markup.add(item1, item2, item3, item4)
 
     bot.send_message( message.chat.id, 'Wsp! Im a bot who can help you with workout in gym {0.first_name}!'.format(message.from_user), reply_markup = markup)
+
 
 @bot.message_handler(content_types=['text'])
 def bot_message(message):
  if message.chat.type=='private':
      if message.text=='Timetable Gym':
-        bot.send_message(message.chat.id, '')
+        bot.send_message(message.chat.id, 'https://www.postermywall.com/index.php/art/template/2c645c03f3e6480375a54909bd0d02fd/gym-timetable-template-design')
 
- @bot.message_handler(content_types=['text'])
- def bot_message(message):
  if message.chat.type=='private':
      if message.text=='Workout with Trainer':
         bot.send_message(message.chat.id, 'You gaining muscle +1')
 
- @bot.message_handler(content_types=['text'])
- def bot_message(message):
  if message.chat.type=='private':
      if message.text=='Me result':
         bot.send_message(message.chat.id, 'Your result on 50 kg 170 cm 3.6 strength')
 
-@bot.message_handler(content_types=['text'])
-def bot_message(message):
  if message.chat.type=='private':
      if message.text=='How to train correctly video link':
-        bot.send_message(message.chat.id, '')
+        bot.send_message(message.chat.id, 'https://youtu.be/geK9GNKGRpo?si=-tb_H8RDaRI5K7UE')
 
 bot.polling()
