@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-TOKEN = "6905402429:AAFubBgvnAMH4XWnWCZQvTWeti3ieZetP6k"
+TOKEN = ""
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -21,7 +21,7 @@ def start(message):
 def bot_message(message):
  if message.chat.type=='private':
      if message.text=='Timetable Gym':
-        bot.send_message(message.chat.id, 'https://www.postermywall.com/index.php/art/template/2c645c03f3e6480375a54909bd0d02fd/gym-timetable-template-design')
+        bot.send_message(message.chat.id, '')
 
  @bot.message_handler(content_types=['text'])
  def bot_message(message):
@@ -39,6 +39,6 @@ def bot_message(message):
 def bot_message(message):
  if message.chat.type=='private':
      if message.text=='How to train correctly video link':
-        bot.send_message(message.chat.id, 'https://youtu.be/geK9GNKGRpo?si=-tb_H8RDaRI5K7UE')
+        bot.send_message(message.chat.id, '')
 
 bot.polling()
