@@ -19,10 +19,13 @@ def start(message):
     item6= types.KeyboardButton('Timetable Friday Training')
     item7= types.KeyboardButton('Timetable Rest Day')
     item2= types.KeyboardButton('Start training')
+    item8= types.KeyboardButton('Eating Food')
+    item9= types.KeyboardButton('Sleep time')
+    item10= types.KeyboardButton('To Go Shop')
     item3= types.KeyboardButton('Result')
     item4= types.KeyboardButton('Food Plan')
 
-    markup.add(item1, item2, item3, item4, item5, item6, item7)
+    markup.add(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10)
 
     bot.send_message(message.chat.id,'Wsp! Im a bot who can help you with workout in gym {0.first_name}!'.format(message.from_user),reply_markup=markup)
 
@@ -52,6 +55,22 @@ if message.chat.type=='private':
         strength += 0.25
         kg += 0.1
         height += 0.1
+
+if message.chat.type=='private':
+     if message.text=='Eating Food':
+        bot.send_message(message.chat.id, 'You now eating food and you gained muscle and height, kg.')
+        muscle += 1
+        kg += 0.1
+        height += 0.1
+
+if message.chat.type=='private':
+     if message.text=='Sleep time':
+        bot.send_message(message.chat.id, 'You sleeping and you gained height.')
+        height += 0.1
+
+if message.chat.type=='private':
+     if message.text=='To go shop':
+        bot.send_message(message.chat.id, 'You going to shop and buying food from list food.')
 
  if message.chat.type=='private':
      if message.text=='Result':
